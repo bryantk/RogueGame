@@ -1,0 +1,27 @@
+TO DO:
+
+hero experience visuals in map drawing
+
+
+
+
+
+GOALS as of 5/16/13
+random class. Set seed for that object, and use it to call rand().
+save all data (states, radnom classes, etc)
+
+pick up items
+drop items
+use items
+sell items
+buy items
+equip armor
+de-equip armor
+set quick spell/item
+use ranged weapons
+use magic
+save
+load
+level up (dont skipp stat bonuses if lvl up more than once at a time)
+command/level stats/tile look up tables.
+

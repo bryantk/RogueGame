@@ -1,0 +1,110 @@
+Flags: 		head		neck		chest	arm		both		ring		Cursed	Known
+
+Effect flags:	//bit#	7			6			5		4		|	3		2			1			0
+			//		overrides	high_priority	equipment	status_effect	|	press			additive_str	additive_dur
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+start::item1
+##name		"Test Item 1"
+##description	"Default test item."
+##type		p
+##value		15
+##weight		10
+##cursed%		0
+##rarity		100
+##flags		cursed known
+#effects
+			10 "enchanted" 100 0 -1 0000|0010
+			10 "enchanted" -90 0 -1 0000|0010
+			10 "enchanted" -21 0 -1 0000|0010
+#end
+item1::end 
+
+start::item2
+##name		"throwing knife"
+##description	"A lightweight knife made of paper. The cuts it leaves run deep. Cuts so deep, that one struck by this blade surely will bleed cardboard, and die."
+##type		t
+##value		100
+##weight		5
+##cursed%		0
+##rarity		100
+##flags		
+#effects
+			10 "quantity" 	1 11 -1 0
+			10 "fragile" 	25 0 -1 0
+			10 "range" 	6 0 -1 0
+			10 "enchanted" 3 0 -1 0
+#end
+item2::end 
+
+start::item3
+##name		"head chest ring arm"
+##description	"A lightweight sword. Adds 4 to dmg."
+##type		w
+##value		100
+##weight		50
+##cursed%		50
+##rarity		100
+##flags		head chest ring arm
+#effects
+			10 "equ_HP" 4 0 -1 0010|0010
+			10 "equ_Earth_res" 55 0 -1 0010|0010
+			10 "equ_Air_res" -50 0 -1 0010|0010
+#end
+item3::end 
+
+start::item4
+##name		"Short Sword+2str"
+##description	"A lightweight sword. Adds 4 to STR."
+##type		w
+##value		100
+##weight		50
+##cursed%		0
+##rarity		100
+##flags		arm
+#effects
+			10 "equ_HP" 7 0 -1 0010|0010
+			10 "equ_STR" 7 0 -1 0010|0010
+			10 "equ_DEF" 7 0 -1 0010|0010
+			10 "equ_INT" 7 0 -1 0010|0010
+			10 "equ_WIS" 7 0 -1 0010|0010
+			10 "equ_Vis" 7 0 -1 0010|0010
+			10 "equ_Eva" 7 0 -1 0010|0010
+
+			10 "equ_Earth_res" 7 0 -1 0010|0010
+			10 "equ_Fire_res" 7 0 -1 0010|0010
+			10 "equ_Water_res" 7 0 -1 0010|0010
+			10 "equ_Air_res" 7 0 -1 0010|0010
+#end
+item4::end 
+
+start::item5
+##name		"Potion of Poison"
+##description	"It adds poison for 4 turns."
+##type		p
+##value		100
+##weight		20
+##cursed%		0
+##rarity		100
+##flags		
+#effects
+
+#end
+item5::end 
+
+start::item6
+##name		"2Handed Sword"
+##description	"It is really big."
+##type		w
+##value		100
+##weight		200
+##cursed%		0
+##rarity		100
+##flags		both arm
+#effects
+			10 "equ_HP" 7 0 -1 0010|0010
+			10 "equ_STR" 20 0 -1 0010|0010
+			10 "equ_DEF" -2 0 -1 0010|0010
+			10 "equ_INT" -4 0 -1 0010|0010
+#end
+item6::end 

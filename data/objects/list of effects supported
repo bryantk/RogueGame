@@ -1,0 +1,42 @@
+EFFECTS:	priority, tag, strength, range, duration, flags
+														\_Overrides, persists, etc.... TO DO ***
+			- denoutes value of ZERO
+	
+
+"color_blind"		removes color
+"dyslexic"		jumbles letter order
+"illiterate"		% to swap letter wtih random char
+"1337"			swap characters or 1337 versions
+"hard_hearing"	occationaly replaces words with _____ (blank)
+"rose_world"	adds 'nice' stuff
+
+"wall_walking"	walk through walls
+
+"fire_attack"			Applys fire damge to weapon strikes = strength of effect		P,"fire_attack",S,-,D,
+"water_attack"			Applys water damge to weapon strikes = strength of effect		P,"water_attack",S,-,D,
+"earth_attack"			Applys earth damge to weapon strikes = strength of effect		P,"earth_attack",S,-,D,
+"air_attack"			Applys air damge to weapon strikes = strength of effect			P,"air_attack",S,-,D,
+"undefendable_attack"	Applys pure damge to weapon strikes = strength of effect		P,"undefendable_attack",S,-,D,
+
+"range"			Sets max range of spell/item. Otherwise =						P,"range",S,-,-1
+									min(0) of    5 - (weight- str / 20)/5
+"cast_target"		Item will be cast at location rather than in a line				P,"cast_target",-,-,-1
+"quantity"		Stackable item: Range = max, strength = current					P,"quantity",current#,max#,-1
+"fragile"		Item has a chance to break on use.									P,"fragile",% to break,-,-1
+
+"cursed"		Item is cursed and cannot be removed. Negitive stats?
+"enchanted"	Item has a increased effect (can be negative)
+"boost"		Item stats are *(str/100) stronger.								P,"boost",str%,-,D,
+
+"equ_hp"
+"equ_str"
+"equ_def"
+"equ_wis"
+"equ_int"
+"equ_vis"
+"equ_eva"
+"equ_fire"
+"equ_water"
+"equ_earth"
+"equ_air"
+

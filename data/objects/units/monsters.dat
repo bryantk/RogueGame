@@ -1,0 +1,75 @@
+// monster list
+id: 0
+name: Error
+sym: E
+color: 5
+lvl: 1
+xp: 12
+g: 13
+hp: 14
+str: 15
+def: 16
+wis: 17
+int: 18
+eva: 19
+vis: 2
+water_res: 0
+fire_res:  0
+air_res:   0
+earth_res: 0
+hear: 10000
+smell: 10000
+begin_effects:
+burning 50 10 0 5 0
+stoned 100 100 0 10 1
+killer 100 100 0 10 1
+dead 10 100 0 10 1
+:end
+
+id: 1
+name: Cow
+sym: C
+color: 3 
+lvl: 4
+xp: 4
+g: 4
+hp: 40
+str: 2
+def: 0
+wis: 2
+int: 2
+eva: 0
+vis: 4
+water_res: 0
+fire_res:  0
+air_res:   0
+earth_res: 0
+hear: 10000
+smell: 10000
+begin_effects:
+
+:end
+
+id: 2
+name: DeepCow
+sym: D
+color: 2 
+lvl: 4
+xp: 4
+g: 4
+hp: 4
+str: 2
+def: 2
+wis: 2
+int: 2
+eva: 50
+vis: 4
+water_res: 0
+fire_res:  0
+air_res:   0
+earth_res: 0
+hear: 10000
+smell: 10000
+begin_effects:
+
+:end

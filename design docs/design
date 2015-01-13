@@ -1,0 +1,106 @@
+										controler 	Takes Turn?
+Movement Keys: 8 Cardinal directions and center	D-pad		Yes
+Confirm Key:	general "yes" actions			A			Yes
+Cancel Key:	general "no" actions			B			
+Quit Key:		way out						Start				//hide in inventory?
+(I)nventory:	to view all the menus			Start		
+Scroll up:	for messages					R-trigger				//needed?
+Scroll down:	for messaes					L-trigger				//needed?
+(L)ook Key:	look, but not touch				X
+Quick KEy:	mapped to 'quick' item, spell, etc	Y			yes
+
+
+In Menu:
+--------------------------------------------
+Movement Keys: 	D-pad		Navigate
+Confirm Key:		A			OK/ Use/ proceed to next step
+Cancel Key:		B			Cancel / Back
+(I)nventory:		Start		Exit menues
+Scroll up:		R-trigger		next pane (magic, stats, etc.)
+Scroll down:		L-trigger		next pane (magic, stats, etc.)		
+(L)ook Key:		X			
+Quick KEy:		Y			
+
+In shop / other:
+--------------------------------------------
+Movement Keys: 	D-pad		Navigate
+Confirm Key:		A			OK/ Use/ proceed to next step
+Cancel Key:		B			Cancel / Back
+(I)nventory:		Start		Exit menues
+Scroll up:		R-trigger		next pane (magic, stats, etc.)
+Scroll down:		L-trigger		next pane (magic, stats, etc.)		
+(L)ook Key:		X			
+Quick KEy:		Y		
+
+In Dungeon:
+--------------------------------------------
+Movement Keys: 	D-pad		move if open, open door if closed, attack if enemy
+Confirm Key:		A			attack enemy, open/close door, use object, disarm trap
+Cancel Key:		B				quick command 1?
+(I)nventory:		Start		inventory
+Scroll up:		R-trigger		scroll message log
+Scroll down:		L-trigger		scroll message log		
+(L)ook Key:		X			view tile/thing
+Quick KEy:		Y				quick command 2?
+
+
+
+
+
+
+
+
+
+
+
+item id
+%s name of item %s
+%s description of item %s
+type
+value
+weight
+
+
+
+item 3
+Potion of Death
+It kills you dead. So DO NOT DRINK.
+p
+100
+1.5
+:heals -600
+:poisons 100
+:slows 100
+:end
+
+
+
+MAIN LOOP
+	get_input()
+		
+	switch (GAME_STATE)
+		case GAME
+			swtich (COMMAND)
+			case LOOK
+			case confirm
+			case etc
+
+		break;
+		case inventory
+		
+		break;
+
+	//update display
+	switch (GAME_STATE)
+		case GAME
+			update game screen
+		break;
+		case inventory
+			update inventory screen
+		break;
+
+END
+
+
+
+

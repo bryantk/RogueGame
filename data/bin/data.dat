@@ -1,0 +1,35 @@
+
+
+start::adj
+Blue
+Red
+Green
+Purple
+Yellow
+Black
+Pink
+a
+##not_here
+
+Muddy
+Quick
+Mirky
+Dark
+Clear
+adj::end
+
+start::last_names
+Bryat	Bryant	Smith	McKay
+Johnson	Jones	Brown	Davis
+Miller	Wilson	Moore	Bashaw
+Bayles	Taylor	Anderson	White
+Harris	Martin	Thompson	Garcia
+Martinez	Robinson	Lewis	Lee
+Walker	Hall		Allen	Young
+King		Write	Hill		Scott
+Adams	Baker	Nelson	Carter
+Campbell	Parker	Evans	Edwards
+Stewart	Morris	Lincoln	Alexander
+Howard	Gray		Watson	Washington
+Green	Reed		Bell
+last_names::end

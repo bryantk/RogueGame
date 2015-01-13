@@ -1,0 +1,18 @@
+item 0
+TESt ITEM
+A NULL test item.
+?
+100
+22.5
+:end
+
+item 1
+Potion of Death
+It kills you dead. So DO NOT DRINK.
+p
+100
+1.5
+:heals -600
+:poisons 100
+:slows 100
+:end

@@ -1,0 +1,166 @@
+
+//**********************************************
+//	
+//	Goals  -  as of 8 / 2 / 13
+//
+//**********************************************
+
+TO DO:
+DONE	Fix droping items in stacks greater than 9.
+DONE	Fix auto-run occupying same square as monster
+DONE	Unit.add_effect has issues adding a 100 priority effect to a 110 list
+DONE	Display messages: All text needs to be parsed for 1337 and other speach/text effects.
+DONE	Fix message list to save corrupted messages (if player is dyslexec, etc.) rather than modifing original
+DONE	How to implement player reading imparments on item names and descriptions...
+DONE	Remove "Cursed" effect and add item flag (cursed).
+DONE	Add "known" flag for items.
+DONE		Display "known" and "unknown" items differently in menu and equipment.
+DONE		Add item_name() function under OBJ_DATA
+DONE		Constructs parsed string to draw on screen. EX. "Super Sword|c3|cB+3|cb"
+DONE		handles bonuses, color, and unknown name look up.
+DONE	look up if known or not.
+DONE		if not known, grab linked random name
+DONE		if known, display normal name and add known flag.
+		
+DONE	Load items from data file
+DONE		include field for "cursed chance" use to see if cursed rhen diregard.
+	
+DONE	Crused equipment cannot be removed until de-cursed. Comes with arbitary -bonus. Might also have "crs effect" (negitive effects).
+DONE	Implement equip/removed code.
+
+
+DONE		implement proposed stat changes for new equipment (i.e. old sword +3str, new has +5str, how to show it)
+DONE		Use bonuses to increas boon given from equipment...
+DONE			idea: add "equipment" flag to effects, call function to compare all equipment effects between the two and update deltas to a global stat structure that is then displayed (if !=0) in stats.
+DONE				on equip/remove confirmation  add stat structure to hero temp stats.
+DONE					stats will balance out on next tick.
+
+DONE		Decurse item function in ITEM.h
+DONE		On equip, reveal equipment
+DONE		Add 'rarity' rating to items
+
+DONE	Apply "boost" before "enchant"
+
+DONE	re-do item menu?
+	Implement add/remove code of two handed weapons
+		return stats to normal then add new weapon stats on equip/remove
+	 done	error with droping items, selector not set to 0 after equipment set
+	Select_target mode in inventory (for things like identify scrolls and such)
+	run code each turn that checks if items of id==0 exist in inventory, or on map, and removes them
+		if inventory, check if is quick cast number, set to null if so.	
+
+	Add game state flag of "dialouge" and unsigned char of pages: if on, confirm key moves dialouge forward until page = 0.
+
+	Make "enchanted" *5 for elemental related things
+
+
+
+	Add item master list and rarity reference
+		vector that grabs the rarity of each item, assigns it to the item it (vector location) then Saves the number of items found
+			ex.)
+				push back -100 (item ZERO)
+				while(file is good)
+					get word
+					if begins with "start::item"				<-searching string
+						while not == "rarity"
+							get word
+						push_back(get_word to int);
+			
+			^^^^^	add this to OBJ_DATA following format populate_rarity(vector to fill, max int to set, string to search for, file to read from);
+
+	Add use item functionality
+		call throw at 0, 0 (self)
+		use of items makes it known (if on self)
+		What if item affects inventory?
+			call "mini-inventory" of items and equipment (in one lump list) and let player select in game mode	**
+			---- or ----
+			add new inventory state to select a secondary item.
+				Extra bool
+				same as browse mode but jumps to different commands on 'c' use and exstends to equiment
+	
+	Set up deal damage code to handle application of conditions (slowed, poinsoned, etc.)
+		Dump all damage info (raw damage, conditions applied, etc) into a bucket and pass that to the unit for processing
+
+	Orignize monser code to be stand alone and allow for many types and monsters
+
+	Tick Hero
+		Call to Unit_apply_effects(). First apply in priority order.
+	Tick items		all ticking item effects execute on duration == 0;		"moveing item" ex. str = 4 (item will move 4 times) duration = 1; on dur == 0, move, if str>0, re-add with str--
+		if effect == 0, run Command_Logic item_tock(DATA, item pointer, item location) and see if anything happens. then remove.
+	Tick Monsters
+		check what type of tiel monster is on, apply effects if needed.
+		Take action for monster
+		Call to Unit_apply_effects(). First apply in priority order.
+		if HP <= 0, drop items, add to hero Gold and EXP, and remove.		"Reincarnation" processes before death check, adds "dead" effect (to skip turns) followed by "rebirth". thus skiping removal
+
+	Decide what curses do	(bad that they apply numerous negative stats and enchantmenst, but good becasue they can be reveresed and made great)
+
+	Define + code player death
+
+	Refine monster unit organizarion
+		load monsters from file
+
+
+
+	+ MILESTONE v.0.4
+
+	plan and code magic page.
+		Figure out Magic limiter... source? MP? gods?
+		Implement gods' favor
+	
+	Complete implemenation of OPTIONS (key config, help, etc.)	
+
+
+	+ MILESTONE v.0.5
+	+	AT this point, the gerneral game code should be on its feet.
+	+	Command_Logic will handle all major additions of code. It will:
+	+		Facilitate physical attacks between player and/or monsters.
+	+		Facilitate item usage with effects.
+	+		Define monster logic
+	+		Apply effects of 'ticks' to items and effects
+	
+	Map and Tiles
+		Define all desired implementations of tiles. Traps, water, poinson, lava, weak walls, peep holes, etc.
+	
+	Implement multiple floors for dungeon-eering
+
+	Spawn items from template
+	Spawn monsters from template
+	Save Map data
+		tiles
+		items on floor
+		monsters on floor
+	Load map data
+	Save player
+		stats
+		inventory
+		equipment
+		floor #	y,x position
+	Load from save
+
+	+ MILESTONE v.0.8
+	+	Game should be fully functional except for random generation, town, and inheritance of deceased heros.
+	+	Save and Load should work
+
+	Implement Town
+		shops
+			blacksmith
+				enchant stuff
+					costs scale exponentialy with enchant bonus		(it needs to be really, really hard to get an item+20)
+					removeal of -enchants cap, but lower exponentialy.	ie to remove: -20 = 100, -18 = 200, -1 = 500
+		NPCs
+		Home Mannor
+		Save related variables
+		load related variables
+
+	Random Generation
+		Generate terrains
+			allow for remembered room types and variation
+		Populate with items and monsters
+			based on rarity.	Floor rarity + random + effects = rarity to pick from, repeat
+
+	+ MILESTONE v.1
+	+	Everything is good! Time to make story!
+	+	remove 'q' to quit and dev mode.
+
+
